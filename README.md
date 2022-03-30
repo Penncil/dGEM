@@ -148,9 +148,15 @@ Step 4: Calculate standardized event rates
 ```r
 #' ############################'  STEP 4: synthesize  ###############################
 ##' run final step in the lead site or coordinating center
+##' # step for lead site only. Other sites would get error message
 pda(site_id = 'site1', ipdata = lung_split[[1]], dir=getwd())
 
 ##' the PDA dGEM is now completed!
+
+# FINAL results
+config <- getCloudConfig(site_id = 'site1', dir=getwd())
+dGEM_event_rate <- pdaGet(name = 'site1_synthesize', config = config)
+dGEM_event_rate
 ``` 
 
 
